@@ -10,6 +10,6 @@ Created a a software engineering team generator command line application. The ap
 ## Demo
 ![HW10Demo](./HW10Demo.png)
 
-![HW10vidsdemo]()
-
+![HW10vidsdemo](https://www.loom.com/share/63e340b734584ecfb3157e737ab4ec35)
+https://www.loom.com/share/63e340b734584ecfb3157e737ab4ec35
 

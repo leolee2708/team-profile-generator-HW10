@@ -12,7 +12,7 @@ const OUTPUT_DIR = path.resolve(__dirname, "output");
 const outputPath = path.join(OUTPUT_DIR, "team.html");
 
 const render = require("./lib/htmlRenderer");
-var newemployees = [];
+var newEmployees = [];
 function startApp() {
 
     // generateHTML();
@@ -53,7 +53,7 @@ function addteamMember() {
             } else if (role === "Engineer") {
                 getRole = "Github username";
             } else {
-                roleInfo = "School name"
+                getRole = "School name"
             }
             inquirer.prompt([{
                 type: "input",
@@ -77,7 +77,7 @@ function addteamMember() {
                     } else {
                         newMember = new Intern(name, id, email, getRole);
                     }
-                    newemployees.push(newMember);
+                    newEmployees.push(newMember);
                     // addtoHTML(newMember)
                     // .then(function () {
 
@@ -85,7 +85,7 @@ function addteamMember() {
                         addteamMember();
                     } else {
                         writeHTML();
-
+                        console.log(newEmployees)
                         // render(newemployees);
 
                     }
@@ -99,7 +99,7 @@ function writeHTML() {
         fs.mkdirSync(OUTPUT_DIR)
 
     }
-    fs.writeFileSync(outputPath, render(newemployees), "utf-8")
+    fs.writeFileSync(outputPath, render(newEmployees), "utf-8")
     //         if (err) {
     //             console.log(err);
     //         }

@@ -12,7 +12,7 @@ const OUTPUT_DIR = path.resolve(__dirname, "output");
 const outputPath = path.join(OUTPUT_DIR, "team.html");
 
 const render = require("./lib/htmlRenderer");
-var newEmployees = [];
+var newemployees = [];
 function startApp() {
 
     // generateHTML();
@@ -49,11 +49,11 @@ function addteamMember() {
         .then(function ({ name, id, email, role }) {
             let getRole = "";
             if (role === "Manager") {
-                getRole = "Enter Phone office #s";
+                getRole = "Enter office phone Numbers";
             } else if (role === "Engineer") {
-                getRole = " Enter Github username";
+                getRole = "Github username";
             } else {
-                getRole = "Enter School name";
+                roleInfo = "School name"
             }
             inquirer.prompt([{
                 type: "input",
@@ -77,18 +77,20 @@ function addteamMember() {
                     } else {
                         newMember = new Intern(name, id, email, getRole);
                     }
-                    newEmployees.push(newMember);
+                    newemployees.push(newMember);
                     // addtoHTML(newMember)
-                    //     .then(function () {
+                    // .then(function () {
 
                     if (addmoreMembers === "yes") {
                         addteamMember();
                     } else {
                         writeHTML();
-                        console.log(newEmployees);
+
+                        // render(newemployees);
+
                     }
-                    // });
                 });
+
         });
 }
 
@@ -97,7 +99,7 @@ function writeHTML() {
         fs.mkdirSync(OUTPUT_DIR)
 
     }
-    fs.writeFileSync(outputPath, render(newEmployees), "utf-8")
+    fs.writeFileSync(outputPath, render(newemployees), "utf-8")
     //         if (err) {
     //             console.log(err);
     //         }
@@ -106,7 +108,6 @@ function writeHTML() {
     // }
 }
 startApp();
-
 // Write code to use inquirer to gather information about the development team members,
 // and to create objects for each team member (using the correct classes as blueprints!)
 
